@@ -22,7 +22,7 @@ export function getIssues(path) {
           title: issue.title.trim(),
           github: issue.html_url.trim(),
           openedBy: issue.user.login.trim(),
-          labels: issue.labels.map(label => label.name).sort()
+          labels: issue.labels.map(label => label.name.trim()).sort().join(',')
         };
       });
     });

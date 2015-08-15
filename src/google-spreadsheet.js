@@ -16,7 +16,7 @@ export function getIssues(key) {
         title: row.title.trim(),
         github: row.githubhref.trim(),
         openedBy: row.openedby.trim(),
-        labels: parseLabels(row.labelsgreensuggested).sort()
+        labels: parseLabels(row.labelsgreensuggested).sort().join(',')
       };
     });
   });

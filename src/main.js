@@ -31,7 +31,7 @@ RSVP.hash({
 
     if (!failed) {
       Object.keys(repoIssue).forEach((prop) => {
-        if (!compare(actual[prop], repoIssue[prop])) {
+        if (actual[prop] !== repoIssue[prop]) {
           stack.push(fail(`doesn't have matching ${prop}`));
           stack.push(info(`  expected: ${repoIssue[prop]}`));
           stack.push(info(`    actual: ${actual[prop]}`));
@@ -51,16 +51,6 @@ RSVP.hash({
 
   console.log(`${repoIssues.length} open issues (${passCount} matching in spreadsheet)`);
 }).catch(console.error);
-
-function compare(a, b) {
-  if (a instanceof Array) {
-    let matches = true;
-    a.forEach((v, idx) => matches = matches && b[idx] === v);
-    return matches;
-  } else {
-    return a === b;
-  }
-}
 
 function pass(msg) {
   return chalk.green('  ✔') + chalk.gray(` ${msg}`);
