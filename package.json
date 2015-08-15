@@ -1,0 +1,27 @@
+{
+  "name": "verify-ember-issues-triage",
+  "version": "0.0.1",
+  "description": "A script for verifying that the Ember.js issue triage spreadsheet matches GitHub issues",
+  "main": "main.js",
+  "devDependencies": {
+    "babel": "^5.8.21",
+    "chalk": "^1.1.0",
+    "github": "^0.2.4",
+    "google-spreadsheet": "^1.0.1",
+    "rsvp": "^3.0.21"
+  },
+  "private": true,
+  "scripts": {
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SaladFork/verify-ember-issues.git"
+  },
+  "author": "Elad Shahar <Elad@EladShahar.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SaladFork/verify-ember-issues/issues"
+  },
+  "homepage": "https://github.com/SaladFork/verify-ember-issues#readme"
+}
