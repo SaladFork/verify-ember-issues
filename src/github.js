@@ -9,12 +9,11 @@ const github = new GitHubApi({
 export function getIssues(path) {
   return new RSVP.Promise((resolve, reject) => {
     const [ user, repo ] = path.split('/');
-    github.issues.repoIssues({ user, repo }, (error, data) => {
+    github.issues.repoIssues({ user, repo, state: 'open' }, (error, data) => {
       if (error) { reject(error); }
       resolve(data);
     });
   }).then((issues) => issues.filter(issue => !issue.pull_request))
-    .then((issues) => issues.filter(issue => issue.state === 'open'))
     .then((issues) => {
       return issues.map((issue) => {
         return {
